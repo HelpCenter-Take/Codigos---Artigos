@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "49bce478-6143-46d8-beab-ee9423753f49",
+		"name": "WA Flows no Blip NOV/23",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "74311"
+	},
+	"item": [
+		{
+			"name": "1. Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"type\": \"application/json\",\r\n    \"uri\":\"/whatsapp-flows\",\r\n    \"resource\": {\r\n        \"name\":\"Novo flow para apagar\",\r\n        \"categories\": [\"OTHER\"]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Details",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/6593475377418140\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/6593475377418140\",\r\n    \"type\": \"application/json\",\r\n    \"resource\": {\r\n        \"name\":\"Novo nome do Flow\",\r\n        \"categories\": [\"OTHER\",\"SIGN_UP\"]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Upload WELL_J",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/flow-json/6593475377418140\",\r\n    \"type\": \"application/json\",\r\n  \"resource\":\r\n\t{\r\n        \"version\": \"2.1\",\r\n        \"screens\": [\r\n            {\r\n                \"id\": \"WELCOME_SCREEN\",\r\n                \"layout\": {\r\n                    \"type\": \"SingleColumnLayout\",\r\n                    \"children\": [\r\n                        {\r\n                            \"type\": \"TextHeading\",\r\n                            \"text\": \"Hello World\"\r\n                        },\r\n                        {\r\n                            \"type\": \"TextBody\",\r\n                            \"text\": \"Let's start building things!\"\r\n                        },\r\n                        {\r\n                            \"type\": \"Footer\",\r\n                            \"label\": \"Complete\",\r\n                            \"on-click-action\": {\r\n                                \"name\": \"complete\",\r\n                                \"payload\": {}\r\n                            }\r\n                        }\r\n                    ]\r\n                },\r\n                \"title\": \"Welcome\",\r\n                \"terminal\": true,\r\n                \"data\": {}\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Upload Publick Key",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/public-key/upload\",\r\n    \"type\": \"application/json\",\r\n    \"resource\": {\r\n\t  \"business_public_key\": \"{{PUBLIC_KEY}}\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Publish",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/publish/6593475377418140\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Assets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/assets/6593475377418140\"\r\n}"
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Deprecate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/deprecate/6593475377418140\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"delete\",\r\n    \"uri\": \"/whatsapp-flows/702816005248795\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_PARA_ENVIAR_COMANDOS}}",
+					"host": [
+						"{{URL_PARA_ENVIAR_COMANDOS}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Authorization",
+			"value": "Key d2hhdHNhcHBwYXltZW50c2htZ2NhcGk6VGlaZXZ5MWZvMVlhRU5DYXpLT0o=",
+			"type": "string"
+		},
+		{
+			"key": "URL_PARA_ENVIAR_COMANDOS",
+			"value": "https://transact.hmg-http.msging.net/commands",
+			"type": "string"
+		},
+		{
+			"key": "TO",
+			"value": "postmaster@wa.gw.msging.net",
+			"type": "string"
+		},
+		{
+			"key": "PUBLIC_KEY",
+			"value": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAludCJCGxBTWDfvuytl4U\n+8Hr8075aYK3fqrgAF2HTo4uONvcGaJb6ptDNGVejX5kNf34JvXma519zLDFGVz8\nFHuvpLtDCh3YRZHjfMpQuSfEawnwrOC0mWTV5vFohJfWH8E3gtlVmaUcGR2TnQ+A\nSCfhYxhwm5LNI7jsuikXQo7w6MK9CCgX2FwiJ5AOqBnrCF20Q2qRKLQNtxh5dKYN\nQXxbjnG5ii7T2BSNJIXgh0cq3ezyUusKwTu7JTPWBnxrpiDDpHti+bHRS2A8GIhM\nM1eEsnQWf2JDKnfVMf9jwNtnYhhD1m6AaAyRmgyGbbJSDNissgXpUEcIAeWvWGKf\n7QIDAQAB\n-----END PUBLIC KEY-----",
+			"type": "string"
+		},
+		{
+			"key": "FLOW_ID",
+			"value": "195215290288622",
+			"type": "string"
+		}
+	]
+}
